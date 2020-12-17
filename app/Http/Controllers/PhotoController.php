@@ -13,7 +13,7 @@ class PhotoController extends Controller
         $photo_path = storage_path("/tmp/orders/" . $request->get("order") . "/photo." . $request->photo->extension());
         $order_id = $request->get("order");
         file_put_contents($photo_path, file_get_contents($request->file('photo')));
-
+die;
         $ts_path = storage_path("/tmp/orders/" . $request->get("order") . "/final.ts");
 
         if (!is_file($ts_path))
