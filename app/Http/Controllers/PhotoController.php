@@ -10,11 +10,12 @@ class PhotoController extends Controller
     {
         if (!$request->get("order") || !$request->file('photo')) return false;
         @mkdir(storage_path("/tmp/" . $request->get("order")), 0777, true);
-        $photo_path = storage_path("/tmp/orders/" . $request->get("order") . "/photo." . $request->photo->extension());
+        $photo_path = storage_path("tmp/orders/" . $request->get("order") . "/photo." . $request->photo->extension());
         $order_id = $request->get("order");
+
         file_put_contents($photo_path, file_get_contents($request->file('photo')));
-die;
-        $ts_path = storage_path("/tmp/orders/" . $request->get("order") . "/final.ts");
+        
+        $ts_path = storage_path("tmp/orders/" . $request->get("order") . "/final.ts");
 
         if (!is_file($ts_path))
             exec("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
