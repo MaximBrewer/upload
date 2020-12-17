@@ -44,4 +44,4 @@ composite -geometry '+'$wdn'+'$hdn $3/tmp/orders/$2/rotate.png $3/tmp/photo.png 
 jpegoptim $3/tmp/orders/$2/final.jpg --strip-all
 
 ffmpeg -y -hide_banner -loglevel panic -filter_complex aevalsrc=0 -loop 1 -i $3/tmp/orders/$2/final.jpg -t 5.8 $3/tmp/orders/$2/final.mp4
-ffmpeg -y -hide_banner -loglevel panic -c:v libx264 -profile:v main -b:v 10M -c:a aac -b:a 164k -i $3/tmp/orders/$2/final.mp4 -i $3/tmp/sound.aac -map 0:v:0 -map 1:a:0 $3/tmp/orders/$2/final.ts
+ffmpeg -y -hide_banner -loglevel panic -s 1920x1080 -c:v libx264 -profile:v main -b:v 10M -c:a aac -b:a 164k -i $3/tmp/orders/$2/final.mp4 -i $3/tmp/sound.aac -map 0:v:0 -map 1:a:0 $3/tmp/orders/$2/final.ts
