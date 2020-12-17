@@ -20,6 +20,8 @@ class PhotoController extends Controller
         // if (!is_file($ts_path))
             exec("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
 
+            echo("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
+
         // if (is_file($ts_path)) {
             $client = new \GuzzleHttp\Client();
             $response = $client->post('https://auth.platformcraft.ru/token', [
