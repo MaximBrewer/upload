@@ -39,7 +39,7 @@ convert -background none -virtual-pixel transparent -background transparent \
 
 convert $3/tmp/orders/$2/perspective.png  -background transparent -rotate 1 $3/tmp/orders/$2/rotate.png
 
-composite -geometry '+'$wdn'+'$hdn $3/tmp/orders/$2/rotate.png $3/tmp/orders/$2/photo.png $3/tmp/mask.jpg $3/tmp/orders/$2/final.jpg
+composite -geometry '+'$wdn'+'$hdn $3/tmp/orders/$2/rotate.png $3/tmp/photo.png $3/tmp/mask.jpg $3/tmp/orders/$2/final.jpg
 
 jpegoptim $3/tmp/orders/$2/final.jpg --strip-all
 
