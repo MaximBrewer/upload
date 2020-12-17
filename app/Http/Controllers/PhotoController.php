@@ -17,12 +17,13 @@ class PhotoController extends Controller
         
         $ts_path = storage_path("tmp/orders/" . $request->get("order") . "/final.ts");
 
-        // if (!is_file($ts_path))
-            exec("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
-
             echo("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
 
-        // if (is_file($ts_path)) {
+        if (!is_file($ts_path))
+            exec("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
+
+
+        if (is_file($ts_path)) {
             $client = new \GuzzleHttp\Client();
             $response = $client->post('https://auth.platformcraft.ru/token', [
                 'form_params' => ['login' => 'montage', 'password' => 'fz7skpFa']
@@ -46,6 +47,6 @@ class PhotoController extends Controller
             // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.jpg");
             // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.mp4");
             // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.ts");
-        // }
+        }
     }
 }
