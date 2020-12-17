@@ -10,7 +10,7 @@ class PhotoController extends Controller
     {
         if(!$request->get("order") || !$request->file('photo')) return false;
         mkdir(storage_path("/tpm/" . $request->get("order")), 0777, true);
-        file_put_contents(storage_path("/tpm/" . $request->get("order") . "/photo." . $request->photo->extension()), $request->file('photo'))
+        file_put_contents(storage_path("/tpm/" . $request->get("order") . "/photo." . $request->photo->extension()), $request->file('photo'));
         // try {
         //     $filepath = storage_path(('app/public/orders/' . $order->id) . "/final.ts");
 
