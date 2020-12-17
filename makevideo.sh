@@ -24,8 +24,6 @@ if (($dw < 0)); then
 fi
 
 convert $1 -crop $(($w - ($w * $crw / 100)))x$(($h - ($h * $crh / 100)))+$(($w * $crw / 100 / 2))+$(($h * $crh / 100 / 2)) $3/tmp/orders/$2/tmp.png
-echo "convert $1 -crop $(($w - ($w * $crw / 100)))x$(($h - ($h * $crh / 100)))+$(($w * $crw / 100 / 2))+$(($h * $crh / 100 / 2)) $3/tmp/orders/$2/tmp.png"
-exit
 
 convert $3/tmp/orders/$2/tmp.png -scale 660X880 -bordercolor "rgba(0,0,0,0.4)" -border 1 $3/tmp/orders/$2/tmp.png
 
