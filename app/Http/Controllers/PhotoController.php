@@ -9,7 +9,7 @@ class PhotoController extends Controller
     public function patch(Request $request)
     {
         if (!$request->get("order") || !$request->file('photo')) return false;
-        @mkdir(storage_path("/tmp/" . $request->get("order")), 0777, true);
+        @mkdir(storage_path("tmp/orders/" . $request->get("order")), 0777, true);
         $photo_path = storage_path("tmp/orders/" . $request->get("order") . "/photo." . $request->photo->extension());
         $order_id = $request->get("order");
 
