@@ -2,8 +2,6 @@
 
 read w h name suffix path < <(identify -format "%w %h %t %e %d" $1)
 
-cd $path;
-
 mw=$((100 * $w * 1 / ($h * 1)))
 dw=$(($mw - 75))
 crw=0
