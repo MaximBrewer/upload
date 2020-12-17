@@ -21,7 +21,7 @@ class PhotoController extends Controller
             echo(is_file($ts_path));
             echo PHP_EOL;
         if (!is_file($ts_path))
-            exec("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
+            system("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
 
             echo(is_file($ts_path));
             echo PHP_EOL;
