@@ -14,17 +14,14 @@ class PhotoController extends Controller
         $order_id = $request->get("order");
 
         file_put_contents($photo_path, file_get_contents($request->file('photo')));
-        
+
         $ts_path = storage_path("tmp/orders/" . $request->get("order") . "/final.ts");
 
-            
-            echo(is_file($ts_path));
-            echo PHP_EOL;
-        if (!is_file($ts_path))
-            system("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
 
-            echo(is_file($ts_path));
-            echo PHP_EOL;
+        if (!is_file($ts_path)) {
+            exec("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
+        }
+        echo("./makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
 
         if (is_file($ts_path)) {
             $client = new \GuzzleHttp\Client();
