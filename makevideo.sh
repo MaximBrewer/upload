@@ -27,7 +27,7 @@ convert $3/tmp/orders/$2/tmp.png -scale 660X880 -bordercolor "rgba(0,0,0,0.4)" -
 
 read wn hn < <(identify -format "%w %h" "$3/tmp/orders/$2/tmp.png")
 
-wdn=$((720 + (660 - $wn) / 2))
+wdn=$((725 + (660 - $wn) / 2))
 hdn=$((115 + (880 - $hn) / 2))
 
 echo $wdn
