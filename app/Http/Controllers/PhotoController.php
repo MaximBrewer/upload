@@ -17,8 +17,6 @@ class PhotoController extends Controller
 
         $ts_path = storage_path("tmp/orders/" . $request->get("order") . "/final.ts");
 
-            echo("../makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
-
         if (!is_file($ts_path)) {
             exec("../makevideo.sh " . $photo_path . " " . $order_id . " " . storage_path());
         }
