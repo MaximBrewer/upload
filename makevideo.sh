@@ -43,7 +43,7 @@ composite -geometry '+'$wdn'+'$hdn $3/tmp/orders/$2/rotate.png $3/tmp/photo.png 
 
 jpegoptim $3/tmp/orders/$2/final.jpg --strip-all
 
-ffmpeg -y -hide_banner -loglevel panic -loop 1 -i $3/tmp/orders/$2/final.jpg -t 5.8 $3/tmp/orders/$2/final.mp4
+ffmpeg -y -hide_banner -loglevel panic -loop 1 -i $3/tmp/orders/$2/final.jpg -t 3.8 $3/tmp/orders/$2/final.mp4
 
 ffmpeg -y -hide_banner -loglevel panic -i $3/tmp/orders/$2/final.mp4 -i $3/tmp/sound.aac -map 0:v:0 -map 1:a:0 -ar 44100 -c:a aac -b:a 164k -filter:v fps=fps=30 -profile:v main -pix_fmt:v yuv420p -c:v libx264 -s 1920x1080 -b:v 10M  $3/tmp/orders/$2/final.ts
 
