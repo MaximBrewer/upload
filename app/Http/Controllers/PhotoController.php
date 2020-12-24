@@ -39,12 +39,12 @@ class PhotoController extends Controller
                     "Authorization" => "Bearer " . $array->access_token
                 ]
             ]);
-            // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "tmp.png");
-            // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "perspective.png");
-            // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "rotate.png");
-            // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.jpg");
-            // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.mp4");
-            // @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.ts");
+            @unlink(storage_path('app/public/orders/' . $order_id . '/') . "tmp.png");
+            @unlink(storage_path('app/public/orders/' . $order_id . '/') . "perspective.png");
+            @unlink(storage_path('app/public/orders/' . $order_id . '/') . "rotate.png");
+            @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.jpg");
+            @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.mp4");
+            @unlink(storage_path('app/public/orders/' . $order_id . '/') . "final.ts");
         }
     }
 }
