@@ -13,6 +13,12 @@ class PhotoController extends Controller
         $photo_path = storage_path("tmp/orders/" . $request->get("order") . "/photo." . $request->photo->extension());
         $order_id = $request->get("order");
 
+        $url = "https://montage-cache.cdnvideo.ru/montage/photo/" . $order_id . ".ts";
+        $headers = @get_headers($url);
+        echo $headers[0] . PHP_EOL;
+        if (strpos($headers[0], '200')) 
+            return false;
+
         file_put_contents($photo_path, file_get_contents($request->file('photo')));
 
         $ts_path = storage_path("tmp/orders/" . $request->get("order") . "/final.ts");
