@@ -40,7 +40,8 @@ class Cron extends Command
 
 
         foreach (glob("/mnt/vol1/www/mp4/*.mp4") as $filename) {
-            echo time() - filemtime($filename) .PHP_EOL;
+            if(time() - filemtime($filename) > 1800)
+                @unlink($filename);
         }
 
 
