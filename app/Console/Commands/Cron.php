@@ -40,7 +40,7 @@ class Cron extends Command
 
 
         foreach (glob("/mnt/vol1/www/mp4/*.mp4") as $filename) {
-            echo time() - filemtime($filename);
+            echo time() - filemtime($filename) .PHP_EOL;
         }
 
 
